@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+@import './../bootstrap/bootstrap.scss';
+@import "glider.min.css";
+
+
+$PACIFICO: 'Pacifico', cursive;
+$ROBOTO: 'Roboto', sans-serif;
+$WHITE: #ffffff;
+$SECONDARY: #8c0000;
+
+body {
+  font-family: $ROBOTO;
+  position: relative;
+
+  .heading{
+    margin: 20px 0;
+    h2{
+      font-family: $PACIFICO;
+      font-size: 2.8rem;
+      color: $WHITE;
+    }
+  }
+
+  section.navigation {
+    position: relative;
+    min-height: 30px;
+
+    .navbar {
+      background-color: $SECONDARY;
+      margin-bottom: 0;
+      border-radius: 0;
+      .navbar-brand{
+        font-family: $PACIFICO;
+        display: contents;
+        font-size: 2.1rem;
+        text-shadow: 0 0 5px rgba(255,255,255, 0.8),
+        0 0 25px rgba(255,255,255, 0.6),
+        0 0 50px rgba(255,255,255, 0.2);
+      }
+      .navbar-nav .nav-item{
+        margin-right: 20px;
+        .nav-link {
+          color: $WHITE;
+          font-size: 1.4rem;
+          text-shadow: 0 0 5px rgba(255,255,255, 0.8),
+          0 0 25px rgba(255,255,255, 0.6),
+          0 0 50px rgba(255,255,255, 0.2);
+          outline: none;
+          text-decoration: none;
+        }
+        .nav-link.active{
+          border: 1px solid $WHITE;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  section.home {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-image: url("../assets/chuildPresent.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 800px;
+      top: 0;
+      left: 0;
+      background-image: url("../assets/snow.png");
+      background-size: cover;
+      background-repeat: repeat;
+      animation: snowFall 25s infinite linear;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 800px;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      background-image: url("../assets/snow2.png");
+      background-size: cover;
+      background-repeat: repeat;
+      animation: snowFall2 15s infinite linear;
+      animation-delay: 5s;
+    }
+
+    .mainText{
+      z-index: 5;
+      .whyWe{
+        padding: 25px 10px;
+        background-color: rgba(0,0,0,0.4);
+        border-radius: 10px;
+        box-shadow: 0 50px 50px rgba(0,0,0,0.4),
+                       0 0 70px rgba(0,0,0,0.1);
+        h1{
+          font-size: 3rem;
+          font-weight: bold;
+          text-shadow: 0 0 5px rgba(255,255,255, 0.8),
+          0 0 25px rgba(255,255,255, 0.6),
+          0 0 50px rgba(255,255,255, 0.2);
+        }
+        ul{
+          li{
+            margin-bottom: 10px;
+            list-style: none;
+            font-size: 1.5rem;
+            .fa{
+              color: #ff0000;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .dayCounter{
+        padding: 25px 10px 45px;
+        background-color: rgba(0,0,0,0.4);
+        border-radius: 10px;
+        height: fit-content;
+        box-shadow: 0 50px 50px rgba(0,0,0,0.4),
+                    0 0 70px rgba(0,0,0,0.1);
+        h2{
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-shadow: 0 0 5px rgba(255,255,255, 0.8),
+                        0 0 25px rgba(255,255,255, 0.6),
+                        0 0 50px rgba(255,255,255, 0.2);
+        }
+        .counter{
+          display: flex;
+          div{
+            padding: 8px 0;
+            border-right: 1px solid $WHITE;
+            position: relative;
+            width: 25%;
+            height: 35px;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            color: $WHITE;
+            &:last-child{
+              border-right: none;
+            }
+            &:before{
+              position: absolute;
+              bottom: -35px;
+              left: 0;
+              width: 100%;
+              height: 35px;
+              padding: 8px 0;
+              color: $WHITE;
+              font-size: 1.5rem;
+              font-weight: bold;
+              text-shadow: 0 0 10px rgba(255,255,255, 0.8),
+                            0 0 30px rgba(255,255,255, 0.6);
+              background-color: #ff0000;
+            }
+            &#day:before{
+              content: 'Дней';
+            }
+            &#hour:before{
+              content: 'Часов';
+            }
+            &#minute:before{
+              content: 'Минут';
+            }
+            &#seconds:before{
+              content: 'Секунд';
+            }
+          }
+        }
+      }
+      &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 800px;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0, 0.3);
+      }
+    }
+  }
+
+  section.about {
+    background-color: $SECONDARY;
+    padding-bottom: 20px;
+    .card{
+      img{
+        max-height: 400px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  section.slider{
+    max-width: 100vw;
+    padding-bottom: 30px;
+    position: relative;
+
+    overflow: hidden;
+    .heading{
+      h2{
+        color: $SECONDARY;
+      }
+    }
+    .glider-contain{
+      max-height: 900px!important;
+        .glider-next{
+          top: 45%;
+          right: -30px;
+        }
+        .glider-prev{
+          top: 45%;
+          left: -30px;
+        }
+      .fa{
+        color: $SECONDARY;
+      }
+    }
+  }
+
+  section.contacts{
+    position: relative;
+    background-color: $SECONDARY;
+    color: $WHITE;
+    h6{
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    form{
+      margin-bottom: 10px;
+      label{
+        font-size: 1.2rem;
+      }
+      .form-control{
+        outline: none;
+        border: none;
+        font-size: 1.2rem;
+        color: $SECONDARY;
+      }
+      button{
+        border: 1px solid $WHITE;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $SECONDARY;
+        outline: none;
+      }
+    }
+  }
+  footer{
+    position: relative;
+    background-color: $SECONDARY;
+    min-height: 40px;
+
+    .footer_logo{
+      font-family: $PACIFICO;
+    }
+
+  }
+}
+
+
+//animation
+@keyframes snowFall {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 800px;
+  }
+}
+
+@keyframes snowFall2 {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50px 800px;
+  }
+}
+
